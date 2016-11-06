@@ -1,0 +1,26 @@
+## Lancement d'un replicat
+mongod --port 27001 --replSet abc --dbpath /home/vagrant/1 --logpath /home/vagrant/log.1 --logappend --oplogSize 50 --smallfiles --fork
+
+mongod --port 27002 --replSet abc --dbpath /home/vagrant/2 --logpath /home/vagrant/log.2 --logappend --oplogSize 50 --smallfiles --fork
+
+mongod --port 27003 --replSet abc --dbpath /home/vagrant/3 --logpath /home/vagrant/log.3 --logappend --oplogSize 50 --smallfiles --fork
+
+## Configuration
+cfg = {
+	_id : "abc",
+	members : [
+		{_id:0, host:"mongo.bd:27001"},
+		{_id:1, host:"mongo.bd:27002"},
+		{_id:2, host:"mongo.bd:27003"},
+	]
+}
+
+## Configuration
+cfg = {
+	_id : "abc",
+	members : [
+		{_id:0, host:"mongo.bd:27001"}
+	]
+}
+
+mongod --port 27001 --dbpath /home/vagrant/1 --logpath /home/vagrant/log.1 --logappend --oplogSize 50 --smallfiles --fork
