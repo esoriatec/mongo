@@ -40,34 +40,4 @@ sudo service mongod start
 sudo chkconfig mongod on
 
 
-## Installation de java
-#sudo yum install -q -y java-1.8.0-openjdk java-1.8.0-openjdk-devel
-#sed -i '$ a export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.102-1.b14.el7_2.x86_64' /home/vagrant/.bashrc
-#sed -i '$ a export PATH=$JAVA_HOME/jre/bin:$PATH' /home/vagrant/.bashrc
-#export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.102-1.b14.el7_2.x86_64
-#export PATH=$JAVA_HOME/jre/bin:$PATH
-
-
-## Installation de Maven
-#wget http://www-eu.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
-#sudo mkdir /usr/lib/maven
-#sudo mv apache-maven-3.3.9-bin.tar.gz /usr/lib/maven
-#sudo tar xzvf /usr/lib/maven/apache-maven-3.3.9-bin.tar.gz --directory /usr/lib/maven/
-#sed -i '$ a export PATH=/usr/lib/maven/apache-maven-3.3.9/bin:$PATH' /home/vagrant/.bashrc
-#sed -i '$ a export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"' /home/vagrant/.bashrc
-#export PATH=/usr/lib/maven/apache-maven-3.3.9/bin:$PATH
-#export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
-
-
-#sed -i 's|"spark.executor.memory": "",|"spark.executor.memory": "2G",|g' /home/vagrant/zeppelin/conf/interpreter.json
-#sed -i 's|"master": "local\[\*\]",|"master": "spark://spark.bd:7077",|g' /home/vagrant/zeppelin/conf/interpreter.json
-
-# Préparation de la box spark
-# copie de la clé vagrant (insecure) sur site vagrant dans .ssh
-# ssh-copy-id -i ~/.ssh/vagrant.pub vagrant@127.0.0.1 - p 2222
-# suppression de l'ancienne clé sur machine distante
-# copie de la cle privé vagrant (insecure) dans /Users/swal4u/vagrant_spark/.vagrant/machines/default/virtualbox/
-# test connexion avec vagrant ssh
-# préparation de la box avec la commande vagrant package
-
 
